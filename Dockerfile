@@ -1,11 +1,24 @@
-from maven:3.5-jdk-11-slim
+from debian:stretch-slim
 
 RUN apt-get update && \
     apt-get install -y \
+    	apt-utils \
         bash \
         git \
-        aws-cli \
-        terraform \
-        terragrunt \
-	      expect \
-	      expect-dev
+        awscli \
+	    expect \
+      	expect-dev \
+      	wget \
+      	unzip
+
+
+RUN wget https://releases.hashicorp.com/terraform/0.11.8/terraform_0.11.8_linux_amd64.zip
+RUN wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.17.0/terragrunt_linux_amd64
+	
+RUN unzip terraform_0.11.8_linux_amd64.zip \
+	&& mv terraform tmp/ \
+	&& mv terragrunt_linux_amd64 /tmp/terragrunt \
+	&& export PATH="$PATH:/tmp" \
+	&& terraform --version \
+	&& chmod 777 /tmp/terragrunt \
+	&& terragrunt --version
