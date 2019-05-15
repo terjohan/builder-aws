@@ -12,10 +12,10 @@ RUN apt-get update && \
       	unzip
 
 
-RUN wget https://releases.hashicorp.com/terraform/0.11.8/terraform_0.11.8_linux_amd64.zip
-RUN wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.17.0/terragrunt_linux_amd64
+RUN wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
+RUN wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.18.3/terragrunt_linux_amd64
 	
-RUN unzip terraform_0.11.8_linux_amd64.zip \
+RUN unzip terraform_0.11.13_linux_amd64.zip \
 	&& mv terraform tmp/ \
 	&& mv terragrunt_linux_amd64 /tmp/terragrunt \
 	&& export PATH="$PATH:/tmp" \
