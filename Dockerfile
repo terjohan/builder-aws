@@ -5,13 +5,13 @@ RUN apt-get update && \
     	apt-utils \
         bash \
         git \
-        awscli \
+        python3-pip \
 	    expect \
       	expect-dev \
       	wget \
       	unzip
 
-
+RUN pip3 install awscli --upgrade
 RUN wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
 RUN wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.18.3/terragrunt_linux_amd64
 	
